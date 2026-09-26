@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UPI Repayment Link Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">India • UPI Payments</p>
+          <h1>Repayment Link Generator</h1>
+        </div>
+      </header>
+
+      <main class="app-card">
+        <section class="panel settings-panel">
+          <h2>Business Details</h2>
+
+          <div class="field-group">
+            <label for="merchantUpi">Your UPI ID</label>
+            <input id="merchantUpi" type="text" placeholder="yourname@upi" value="demo@upi" />
+          </div>
+
+          <div class="field-group">
+            <label for="defaultNote">Default repayment note</label>
+            <input id="defaultNote" type="text" placeholder="Repayment for invoice" value="Repayment for invoice" />
+          </div>
+
+          <div class="button-row">
+            <button id="addCustomer" class="primary-btn" type="button">+ Add Customer</button>
+            <button id="generateLinks" class="secondary-btn" type="button">Generate Links</button>
+          </div>
+        </section>
+
+        <section class="panel customers-panel">
+          <div class="panel-head">
+            <h2>Customers</h2>
+            <span id="customerCount" class="badge">0</span>
+          </div>
+
+          <div id="customerList" class="customer-list"></div>
+        </section>
+      </main>
+
+      <section class="results-panel">
+        <div class="results-head">
+          <h2>Generated Links</h2>
+          <div class="quick-actions">
+            <button id="copyAll" class="ghost-btn" type="button">Copy All</button>
+            <button id="downloadJson" class="ghost-btn" type="button">Download JSON</button>
+          </div>
+        </div>
+
+        <div id="results" class="results-grid"></div>
+      </section>
+    </div>
+
+    <template id="customerTemplate">
+      <div class="customer-row">
+        <div class="row-header">
+          <span class="row-number">Customer 1</span>
+          <button class="remove-btn" type="button">Remove</button>
+        </div>
+
+        <div class="field-grid">
+          <div class="field-group">
+            <label>Customer Name</label>
+            <input class="customer-name" type="text" placeholder="Rahul Sharma" />
+          </div>
+
+          <div class="field-group">
+            <label>Amount (₹)</label>
+            <input class="customer-amount" type="number" min="0" step="0.01" placeholder="5000" />
+          </div>
+
+          <div class="field-group">
+            <label>UPI ID (optional)</label>
+            <input class="customer-upi" type="text" placeholder="optional custom UPI" />
+          </div>
+
+          <div class="field-group full-width">
+            <label>Payment Note</label>
+            <input class="customer-note" type="text" placeholder="Repayment for invoice" />
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
